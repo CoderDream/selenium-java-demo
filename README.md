@@ -3,7 +3,14 @@ selenium-java-demo
 
  selenium 版本 
 ----------
-2.53.1 ，不要选3.x，否则报错
+pom.xml文件中，版本选2.53.1 ，不要选3.x，否则报错
+
+    	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.53.1</version>
+		</dependency>
 
 Firefox版本  
 ----------
