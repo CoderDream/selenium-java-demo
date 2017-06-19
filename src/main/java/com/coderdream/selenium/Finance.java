@@ -14,7 +14,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Baidu {
+public class Finance {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;
@@ -24,20 +24,23 @@ public class Baidu {
 	public void setUp() throws Exception {
 		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
-		baseUrl = "https://www.baidu.com/";
+		baseUrl = "http://finance.oa.bill-jc.com/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
 	@Test
-	public void testBaidu() throws Exception {
+	public void testFinance() throws Exception {
 		driver.get(baseUrl + "/");
-		driver.findElement(By.id("kw")).click();
-		driver.findElement(By.id("kw")).click();
-		driver.findElement(By.id("kw")).click();
-		driver.findElement(By.id("kw")).clear();
-		driver.findElement(By.id("kw")).sendKeys("https://www.baidu.com/");
-		driver.findElement(By.id("su")).click();
-		driver.findElement(By.id("kw")).click();
+		driver.findElement(By.id("username")).clear();
+		driver.findElement(By.id("username")).sendKeys("xulin28709");
+		driver.findElement(By.id("pwd")).clear();
+		driver.findElement(By.id("pwd")).sendKeys("xl123456");
+		driver.findElement(By.cssSelector("input.templatemo-blue-button.width-100")).click();
+		driver.findElement(By.cssSelector("span.username")).click();
+		driver.findElement(By.xpath("//ul[@id='menulist']/li[3]/a/span")).click();
+		driver.findElement(By.linkText("个人钱包")).click();
+		driver.findElement(By.cssSelector("span.username")).click();
+		driver.findElement(By.linkText("注销")).click();
 	}
 
 	@After

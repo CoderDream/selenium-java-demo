@@ -1,7 +1,7 @@
 # selenium-java-demo
 selenium-java-demo
 
- selenium 版本 
+ Selenium 版本 
 ----------
 pom.xml文件中，版本选2.53.1 ，不要选3.x，否则报错
 
@@ -25,3 +25,10 @@ Firefox版本
 		baseUrl = "https://www.baidu.com/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
+
+
+
+ChromeDriver版本
+----------
+
+v2.9.248315 on port 23485
