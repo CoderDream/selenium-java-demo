@@ -38,7 +38,7 @@ v2.9.248315 on port 23485
 ----------
 
 | 用例        | 方式           | 使用插件|
-| ------------- |:-------------:|-------------:|
+| ------------- |:-------------:|:-------------:|
 | testBaidu_01      | By.id("kw") |Firebug|
 | testBaidu_02      | By.name("wd") |Firebug|
 | testBaidu_03      |By.className("s_ipt") | Firebug|
