@@ -2,6 +2,7 @@ package com.coderdream.selenium;
 
 import static org.junit.Assert.fail;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -12,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaiduTest {
@@ -22,8 +24,12 @@ public class BaiduTest {
 
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
-		driver = new FirefoxDriver();
+		// System.setProperty("webdriver.firefox.bin",
+		// "D:/Firefox/firefox.exe");
+		// 打开指定路径的firefox,方法2
+		File pathToFirefoxBinary = new File("D:\\Firefox\\firefox.exe");
+		FirefoxBinary firefoxbin = new FirefoxBinary(pathToFirefoxBinary);
+		driver = new FirefoxDriver(firefoxbin, null);
 		baseUrl = "https://www.baidu.com/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
@@ -42,9 +48,10 @@ public class BaiduTest {
 		driver.get(baseUrl);
 		driver.findElement(By.name("wd")).sendKeys("webdriver");
 	}
-	
+
 	/**
 	 * by className
+	 * 
 	 * @throws Exception
 	 */
 	@Test
@@ -52,9 +59,10 @@ public class BaiduTest {
 		driver.get(baseUrl);
 		driver.findElement(By.className("s_ipt")).sendKeys("test");
 	}
-	
+
 	/**
 	 * by linkText
+	 * 
 	 * @throws Exception
 	 */
 	@Test
@@ -62,9 +70,10 @@ public class BaiduTest {
 		driver.get(baseUrl);
 		driver.findElement(By.linkText("新闻")).click();
 	}
-	
+
 	/**
 	 * by linkText
+	 * 
 	 * @throws Exception
 	 */
 	@Test
@@ -75,6 +84,7 @@ public class BaiduTest {
 
 	/**
 	 * by xpath
+	 * 
 	 * @throws Exception
 	 */
 	@Test
@@ -82,9 +92,10 @@ public class BaiduTest {
 		driver.get(baseUrl);
 		driver.findElement(By.xpath(".//*[@id='kw']")).sendKeys("test");
 	}
-	
+
 	/**
 	 * by cssSelector
+	 * 
 	 * @throws Exception
 	 */
 	@Test
@@ -92,7 +103,7 @@ public class BaiduTest {
 		driver.get(baseUrl);
 		driver.findElement(By.cssSelector("#kw")).sendKeys("css");
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
