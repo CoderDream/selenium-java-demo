@@ -100,6 +100,8 @@ public class Step01Login {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		
+		// ASP.NET_SessionId=otno02xpryeg2qktbsufoobr; path=/; domain=test3.bill-jc.com; HttpOnly
 
 		// 进入id=""frame_content""的frame中
 		driver.switchTo().frame("frame_content");
