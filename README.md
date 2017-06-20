@@ -32,3 +32,17 @@ ChromeDriver版本
 ----------
 
 v2.9.248315 on port 23485
+
+
+定位方式
+----------
+
+| 用例        | 方式           | 使用插件|
+| ------------- |:-------------:|-------------:|
+| testBaidu_01      | By.id("kw") |Firebug|
+| testBaidu_02      | By.name("wd") |Firebug|
+| testBaidu_03      |By.className("s_ipt") | Firebug|
+| testBaidu_04      | By.linkText("新闻") | Firebug|
+| testBaidu_05      | By.partialLinkText("新") |Firebug|
+| testBaidu_06      |By.xpath(".//*[@id='kw']") |Firepath(xpath)|
+| testBaidu_07      |By.cssSelector("#kw") | Firepath(css)|

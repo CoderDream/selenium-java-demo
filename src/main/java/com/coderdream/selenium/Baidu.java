@@ -29,17 +29,70 @@ public class Baidu {
 	}
 
 	@Test
-	public void testBaidu() throws Exception {
-		driver.get(baseUrl + "/");
-		driver.findElement(By.id("kw")).click();
-		driver.findElement(By.id("kw")).click();
-		driver.findElement(By.id("kw")).click();
-		driver.findElement(By.id("kw")).clear();
-		driver.findElement(By.id("kw")).sendKeys("https://www.baidu.com/");
-		driver.findElement(By.id("su")).click();
-		driver.findElement(By.id("kw")).click();
+	public void testBaidu_01() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.id("kw")).sendKeys("selenium");
 	}
 
+	/**
+	 * @throws Exception
+	 */
+	@Test
+	public void testBaidu_02() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.name("wd")).sendKeys("webdriver");
+	}
+	
+	/**
+	 * by className
+	 * @throws Exception
+	 */
+	@Test
+	public void testBaidu_03() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.className("s_ipt")).sendKeys("test");
+	}
+	
+	/**
+	 * by linkText
+	 * @throws Exception
+	 */
+	@Test
+	public void testBaidu_04() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.linkText("新闻")).click();
+	}
+	
+	/**
+	 * by linkText
+	 * @throws Exception
+	 */
+	@Test
+	public void testBaidu_05() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.partialLinkText("新")).click();
+	}
+
+	/**
+	 * by xpath
+	 * @throws Exception
+	 */
+	@Test
+	public void testBaidu_06() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.xpath(".//*[@id='kw']")).sendKeys("test");
+	}
+	
+	/**
+	 * by cssSelector
+	 * @throws Exception
+	 */
+	@Test
+	public void testBaidu_07() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.cssSelector("#kw")).sendKeys("css");
+	}
+	
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
