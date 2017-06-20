@@ -33,6 +33,9 @@ ChromeDriver版本（失败，还没有有找到原因）
 
 v2.9.248315 on port 23485
 
+![](https://github.com/CoderDream/selenium-java-demo/blob/master/snapshot/s_0001.png?raw=true)
+
+![](https://github.com/CoderDream/selenium-java-demo/blob/master/snapshot/s_0002.png?raw=true)
 
 定位方式 
 ----------
@@ -47,3 +50,6 @@ com.coderdream.selenium.Baidu.java
 | testBaidu_05      | By.partialLinkText("新") |Firebug|
 | testBaidu_06      |By.xpath(".//*[@id='kw']") |Firepath(xpath)|
 | testBaidu_07      |By.cssSelector("#kw") | Firepath(css)|
+
+![](https://github.com/CoderDream/selenium-java-demo/blob/master/snapshot/s_0003.png?raw=true)
+
