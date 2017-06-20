@@ -14,7 +14,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Baidu {
+public class BaiduTest {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;

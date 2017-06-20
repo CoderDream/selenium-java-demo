@@ -28,14 +28,15 @@ Firefox版本
 
 
 
-ChromeDriver版本
+ChromeDriver版本（失败，还没有有找到原因）
 ----------
 
 v2.9.248315 on port 23485
 
 
-定位方式
+定位方式 
 ----------
+com.coderdream.selenium.Baidu.java
 
 | 用例        | 方式           | 使用插件|
 | ------------- |:-------------:|:-------------:|
