@@ -24,7 +24,7 @@ public class Finance {
 	public void setUp() throws Exception {
 		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
-		baseUrl = "http://finance.oa.bill-jc.com/";
+		baseUrl = "xxx";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
@@ -32,9 +32,9 @@ public class Finance {
 	public void testFinance() throws Exception {
 		driver.get(baseUrl + "/");
 		driver.findElement(By.id("username")).clear();
-		driver.findElement(By.id("username")).sendKeys("xulin28709");
+		driver.findElement(By.id("username")).sendKeys("xxx");
 		driver.findElement(By.id("pwd")).clear();
-		driver.findElement(By.id("pwd")).sendKeys("xl123456");
+		driver.findElement(By.id("pwd")).sendKeys("xxx");
 		driver.findElement(By.cssSelector("input.templatemo-blue-button.width-100")).click();
 		driver.findElement(By.cssSelector("span.username")).click();
 		driver.findElement(By.xpath("//ul[@id='menulist']/li[3]/a/span")).click();

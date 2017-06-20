@@ -53,3 +53,28 @@ com.coderdream.selenium.Baidu.java
 
 ![](https://github.com/CoderDream/selenium-java-demo/blob/master/snapshot/s_0003.png?raw=true)
 
+
+表格定位
+----------
+
+先通过findElement找到表格，然后通过findElements找到所有tr，再通过findElements找到所有td
+
+    WebElement table = driver.findElement(By.tagName("table"));
+	// findElement是定位单个元素的方法
+	//table.findElement(By.tagName("tr"));
+	
+	// findElements是定位一组元素的方法
+	String str1 = "第二行第2列";
+	String str2 = "第三行第6列";
+	List<WebElement> trs = table.findElements(By.tagName("tr"));
+	for (WebElement tr : trs) {
+		List<WebElement> tds = tr.findElements(By.tagName("td"));
+		for (WebElement td : tds) {
+			//System.out.println(td.getText());
+			if(str1.equals(td.getText()) ||str2.equals(td.getText())) {
+				System.out.println(td.getText());
+			} else {
+				System.out.println("error");
+			}
+		}
+	}
