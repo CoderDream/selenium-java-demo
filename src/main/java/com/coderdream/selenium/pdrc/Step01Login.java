@@ -24,7 +24,7 @@ public class Step01Login {
 
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.firefox.bin", "C:/Firefox/firefox.exe");
+		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
 		baseUrl = "http://test3.bill-jc.com/";
 	}
@@ -88,7 +88,11 @@ public class Step01Login {
 		// 设置10秒
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(baseUrl);
-
+		// ASP.NET_SessionId=otno02xpryeg2qktbsufoobr; path=/; domain=test3.bill-jc.com; HttpOnly
+		// 增加一个name = "name",value="value"的cookie pzhlkc2js2xalixqknayam1z
+		//Cookie cookie = new Cookie("ASP.NET_SessionId", "pzhlkc2js2xalixqknayam1z");
+		//driver.manage().addCookie(cookie);
+		
 		driver.findElement(By.id("username")).clear();
 		driver.findElement(By.id("username")).sendKeys("B-26026");
 		driver.findElement(By.id("pwd")).clear();
@@ -101,7 +105,7 @@ public class Step01Login {
 			e.printStackTrace();
 		}
 		
-		// ASP.NET_SessionId=otno02xpryeg2qktbsufoobr; path=/; domain=test3.bill-jc.com; HttpOnly
+
 
 		// 进入id=""frame_content""的frame中
 		driver.switchTo().frame("frame_content");
@@ -127,9 +131,9 @@ public class Step01Login {
 		driver.findElement(By.xpath("html/body/div[1]/div/div/ul/li[3]/a/img")).click();
 
 		// 点击注销
-		driver.findElement(By.xpath("html/body/div[1]/div/div/ul/li[3]/ul/li[3]/a")).click();
+		//driver.findElement(By.xpath("html/body/div[1]/div/div/ul/li[3]/ul/li[3]/a")).click();
 
-		driver.quit();
+		//driver.quit();
 	}
 
 	@Test

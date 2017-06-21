@@ -24,7 +24,7 @@ public class Step02OutProjectDate {
 
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.firefox.bin", "C:/Firefox/firefox.exe");
+		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
 		baseUrl = "http://test3.bill-jc.com/";
 	}
