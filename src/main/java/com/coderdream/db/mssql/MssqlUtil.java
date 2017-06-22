@@ -10,7 +10,6 @@ import java.util.List;
 
 public class MssqlUtil {
 	public static List<String> executeQuery(String sql, String columns) {
-
 		try {
 			Connection conn = getConnection();
 			Statement st = conn.createStatement();
@@ -23,6 +22,19 @@ public class MssqlUtil {
 				}
 			}
 			set.close();
+			st.close();
+			conn.close();
+			return result;
+		} catch (SQLException e) {
+			throw new IllegalArgumentException(e);
+		}
+	}
+
+	public static int executeUpdate(String sql) {
+		try {
+			Connection conn = getConnection();
+			Statement st = conn.createStatement();
+			int result = st.executeUpdate(sql);
 			st.close();
 			conn.close();
 			return result;
