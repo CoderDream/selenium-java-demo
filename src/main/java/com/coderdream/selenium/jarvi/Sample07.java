@@ -27,7 +27,7 @@ public class Sample07 {
 
 	/**
 	 * <pre>
-	 * 从以上代码可以看出dr.switchTo().alert();
+	 * 从以上代码可以看出driver.switchTo().alert();
 	 * 这句可以得到alert\confirm\prompt对话框的对象，然后运用其方法对它进行操作。对话框操作的主要方法有：
 	 * 	getText()     得到它的文本值
 	 * 	accept()      相当于点击它的"确认"

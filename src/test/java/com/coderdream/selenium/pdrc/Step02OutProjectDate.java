@@ -1,10 +1,14 @@
 package com.coderdream.selenium.pdrc;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -24,9 +28,11 @@ public class Step02OutProjectDate {
 
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
+		System.setProperty("webdriver.firefox.bin", "C:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
-		baseUrl = "http://test3.bill-jc.com/";
+		// baseUrl = "http://test3.bill-jc.com/";
+
+		baseUrl = "http://localhost:1666/";
 	}
 
 	/**
@@ -153,7 +159,7 @@ public class Step02OutProjectDate {
 				.findElement(By.xpath(".//*[@id='freedomgrid_report']/table/tbody/tr[2]/td[2]/div/div/div[1]/span[2]"))
 				.getText();
 		System.out.println(actual);
-		//assertEquals("36.19", actual);
+		assertEquals("36.19", actual);
 		// 跳出frame,进入default content;
 		driver.switchTo().defaultContent();
 

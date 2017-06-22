@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
+ * selenium webdriver学习（二）————对浏览器的简单操作
  * http://jarvi.iteye.com/blog/1447672
  *
  */

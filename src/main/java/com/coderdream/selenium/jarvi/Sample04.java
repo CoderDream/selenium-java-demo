@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * <pre>
+ * selenium webdriver学习（四）------------定位页面元素
  * http://jarvi.iteye.com/blog/1448025 frame_login_user frame_login_label_user
  * 
  * <input autocomplete="off" maxlength="255" value="" class="s_ipt" name="wd" id

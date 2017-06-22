@@ -22,7 +22,7 @@ public class Sample13 {
 
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
+		System.setProperty("webdriver.firefox.bin", "C:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
 		baseUrl = "https://www.baidu.com/";
 	}

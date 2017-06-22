@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
+ * selenium webdriver学习（一）------------快速开始
  * http://jarvi.iteye.com/blog/1447389
  *
  */

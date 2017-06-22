@@ -78,3 +78,29 @@ com.coderdream.selenium.Baidu.java
 			}
 		}
 	}
+
+
+
+Selenium-webdriver学习教程 
+----------
+地址： [http://jarvi.iteye.com/category/203994](http://jarvi.iteye.com/category/203994)
+
+    package com.coderdream.selenium.jarvi
+
+| 序号        | 主题           | 链接|
+| ------------- |:-------------|:-------------:|
+| Sample01      | 快速开始|[http://jarvi.iteye.com/blog/1447389](http://jarvi.iteye.com/blog/1447389)|
+| Sample02      | 对浏览器的简单操作|[http://jarvi.iteye.com/blog/1447672](http://jarvi.iteye.com/blog/1447672)|
+| Sample03      | 执行js脚本|[http://jarvi.iteye.com/blog/1447755](http://jarvi.iteye.com/blog/1447755)|
+| Sample04      | 定位页面元素|[http://jarvi.iteye.com/blog/1448025](http://jarvi.iteye.com/blog/1448025)|
+| Sample05      | iframe的处理|[http://jarvi.iteye.com/blog/1450525](http://jarvi.iteye.com/blog/1450525)|
+| Sample06      | 如何得到弹出窗口|[http://jarvi.iteye.com/blog/1450626](http://jarvi.iteye.com/blog/1450626)|
+| Sample07      | 如何处理alert、confirm、prompt对话框|[http://jarvi.iteye.com/blog/1450750](http://jarvi.iteye.com/blog/1450750)|
+| Sample08      | 如何操作select下拉框|[http://jarvi.iteye.com/blog/1450883](http://jarvi.iteye.com/blog/1450883)|
+| Sample09      | 如何操作cookies|[http://jarvi.iteye.com/blog/1451019](http://jarvi.iteye.com/blog/1451019)|
+| Sample10      | 如何把一个元素拖放到另一个元素里面（未实现）|[http://jarvi.iteye.com/blog/1452220](http://jarvi.iteye.com/blog/1452220)|
+| Sample11      | 如何等待页面元素加载完成|[http://jarvi.iteye.com/blog/1453662](http://jarvi.iteye.com/blog/1453662)|
+| Sample12      | 如何利用selenium-webdriver截图|[http://jarvi.iteye.com/blog/1464169](http://jarvi.iteye.com/blog/1464169)|
+| Sample13      | 如何利用Actions类模拟鼠标和键盘的操作|[http://jarvi.iteye.com/blog/1468690](http://jarvi.iteye.com/blog/1468690)|
+| Sample14      | 如何处理table|[http://jarvi.iteye.com/blog/1477837](http://jarvi.iteye.com/blog/1477837)|
+| Sample15      | 如何处理FirefoxProfile（有问题）|[http://jarvi.iteye.com/blog/1482064](http://jarvi.iteye.com/blog/1482064)|
