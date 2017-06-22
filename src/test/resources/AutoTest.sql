@@ -59,4 +59,76 @@ UPDATE ISBG_Project
 WHERE ID = '4A6251B4-1E00-403D-A3F8-8453EBA1C3C1';
 
 DELETE FROM ISBG_Project WHERE ID = '4A6251B4-1E00-403D-A3F8-8453EBA1C3C1';
-      
+     
+     
+     
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT ID
+      ,bd.ProjectID
+      ,bd.WorkID
+      ,bd.DispatchMonth
+      ,bd.ConfrimTime
+      ,bd.BSMState
+      ,bd.BSM
+  FROM PDRC_BSM_Dispatch bd
+  where bd.WorkID=N'B-024';
+  
+  
+  /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT [ID]
+      ,[Staff_WorkID]
+      ,[Customer_WorkID]
+      ,[Staff_Name]
+      ,[Gender]
+      ,[DepartmentID]
+      ,[DepartmentName]
+      ,[Project_ID]
+      ,[CustomerNo]
+      ,[CustomerName]
+      ,[CustomerDep]
+      ,[DeliveryType]
+      ,[CooperationType]
+      ,[Technology]
+      ,[PriceType]
+      ,[TechnicalTrend]
+      ,[ProPosition]
+      ,[ExpertLevel]
+      ,[BJCPosition]
+      ,[EmployeeNature]
+      ,[EmployeeState]
+      ,[EntryDate]
+      ,[InPro_Date]
+      ,[InPro_State]
+      ,[PositiveDate]
+      ,[OutPro_Date]
+      ,[TermDate]
+      ,[WorkingCity]
+      ,[ProjectMgr_WorkID]
+      ,[ProjectMgr_Name]
+      ,[WorkLocation]
+      ,[WorkPlace]
+      ,[IsElite]
+      ,[OutPro_Reason]
+      ,[Remarks]
+      ,[P_Type]
+      ,[P_IsSite]
+      ,[P_AreaType]
+      ,[P_ExpertLevel]
+      ,[P_LevelDes]
+      ,[P_Price]
+      ,[P_Currency]
+      ,[is_Pay]
+      ,[EquipmentName]
+      ,[SiteName]
+      ,[Create_WorkID]
+      ,[Create_WorkName]
+      ,[CreateTime]
+      ,[Modify_WorkID]
+      ,[Modify_WorkName]
+      ,[ModifyTime]
+      ,[VacancyReason]
+      ,[VacancyID]
+      ,[VacancyType]
+      ,[Predict_OutProDate]
+  FROM [BJC_Finance_Test].[dbo].[ISBG_HumanMap] hm
+   where hm.Staff_WorkID=N'B-024';
