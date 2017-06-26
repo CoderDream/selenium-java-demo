@@ -7,9 +7,14 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.coderdream.db.bean.TableCompareBean;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -142,6 +147,29 @@ public class TemplateFactory {
 	 */
 	public static String generateHtmlFromFtl(String name,
 			Map<String, String> map) throws IOException, TemplateException {
+		Writer out = new StringWriter(2048);
+		Template temp = getTemplateByName(name);
+		temp.setEncoding(ENCODING);
+		temp.process(map, out);
+		return out.toString();
+	}
+	
+	/**
+	 * 
+	 * @Date:2014年4月26日 下午3:24:37
+	 * @author 曹志飞
+	 * @param name
+	 *            模板文件的名称
+	 * @param map
+	 *            与模板内容转换对象
+	 * @return
+	 * @throws IOException
+	 * @throws TemplateException
+	 * @Description:
+	 * @return String
+	 */
+	public static String generateHtmlFromFtlWithList(String name,
+			List<TableCompareBean> map) throws IOException, TemplateException {
 		Writer out = new StringWriter(2048);
 		Template temp = getTemplateByName(name);
 		temp.setEncoding(ENCODING);

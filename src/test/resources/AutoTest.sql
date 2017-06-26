@@ -19,7 +19,7 @@ WHERE p.ProjectMgr_WorkID = 'B-26050'
 SELECT *
 FROM ISBG_Project p
 WHERE p.ProjectMgr_WorkID = 'B-26050'
-	   AND ProjectName = 'PDRCTest';
+	   AND ProjectName = 'P06211624';
 	   
 SELECT p.ProState,
        p.ProStatePPC,

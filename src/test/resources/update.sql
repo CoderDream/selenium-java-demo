@@ -1,0 +1,2 @@
+INSERT INTO [dbo].[PDRC_StaffManage] ([ID],WorkID,UserName,NormalMam,TM,TMName,AddPer,AddDate,InDate) VALUES(newid(),N'B-28196',N'吴亮',N'0.56',N'B-29685',N'唐力力',N'B-26026',N'2017-06-01',N'2017-06-01');
+INSERT INTO [dbo].[PDRC_StaffManage] ([ID],WorkID,UserName,NormalMam,TM,TMName,AddPer,AddDate,InDate) VALUES(newid(),N'B-22687',N'陈斌',N'1.38',N'B-28023',N'王新槐',N'B-26026',N'2017-06-01',N'2017-06-01');

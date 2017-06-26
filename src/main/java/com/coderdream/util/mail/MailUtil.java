@@ -1,8 +1,13 @@
 package com.coderdream.util.mail;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
+
 import javax.mail.MessagingException;
+
+import com.coderdream.db.bean.TableCompareBean;
+
 import freemarker.template.TemplateException;
 
 /**
@@ -47,6 +52,26 @@ public class MailUtil {
 		mail.setNeedAuth(true);
 		mail.setNamePass(username, password, nickname);
 		maiBody = TemplateFactory.generateHtmlFromFtl(templateName, map);
+		mail.setSubject(subject);
+		mail.setBody(maiBody);
+		mail.setReceiver(receiver);
+		mail.setSender(sender);
+		mail.sendout();
+	}
+	
+	public static void sendMailByTemplateWithListObject(String receiver, String subject,
+			List<TableCompareBean> map, String templateName) throws IOException,
+			TemplateException, MessagingException {
+		String maiBody = "";
+		String server = ConfigLoader.getServer();
+		String sender = ConfigLoader.getSender();
+		String username = ConfigLoader.getUsername();
+		String password = ConfigLoader.getPassword();
+		String nickname = ConfigLoader.getNickname();
+		MailSender mail = new MailSender(server);
+		mail.setNeedAuth(true);
+		mail.setNamePass(username, password, nickname);
+		maiBody = TemplateFactory.generateHtmlFromFtlWithList(templateName, map);
 		mail.setSubject(subject);
 		mail.setBody(maiBody);
 		mail.setReceiver(receiver);
