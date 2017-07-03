@@ -6,7 +6,9 @@ public class Constants {
 	
 	public static String TABLE_STRUCTURE_FILE_NAME = "TableStructure.xlsx";
 	
-	public static String DATA_FILE_NAME = "AutoTest.xlsx";
+//	public static String DATA_FILE_NAME = "AutoTest.xlsx";
+	
+	public static String DATA_FILE_NAME = "Data13.xlsx";
 	
 	public static String EXCAVATOR_FILE_NAME = "挖掘机.xlsx";
 	
