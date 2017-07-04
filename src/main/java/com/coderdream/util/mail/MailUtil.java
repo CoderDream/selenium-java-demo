@@ -59,8 +59,8 @@ public class MailUtil {
 		mail.sendout();
 	}
 	
-	public static void sendMailByTemplateWithListObject(String receiver, String subject,
-			List<TableCompareBean> map, String templateName) throws IOException,
+	public static void sendMailByTemplateWithMapObject(String receiver, String subject,
+			Map<String, Object> map, String templateName) throws IOException,
 			TemplateException, MessagingException {
 		String maiBody = "";
 		String server = ConfigLoader.getServer();
@@ -71,14 +71,14 @@ public class MailUtil {
 		MailSender mail = new MailSender(server);
 		mail.setNeedAuth(true);
 		mail.setNamePass(username, password, nickname);
-		maiBody = TemplateFactory.generateHtmlFromFtlWithList(templateName, map);
+		maiBody = TemplateFactory.generateHtmlFromFtlWithMapObject(templateName, map);
 		mail.setSubject(subject);
 		mail.setBody(maiBody);
 		mail.setReceiver(receiver);
 		mail.setSender(sender);
 		mail.sendout();
 	}
-
+	
 	/**
 	 * 根据模板名称查找模板，加载模板内容后发送邮件
 	 * 

@@ -10,6 +10,8 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.sourceforge.jtds.jdbc.Driver;
+
 public class MssqlUtil {
 
 	public static List<String[]> executeQuery(String sql) {
@@ -176,6 +178,7 @@ public class MssqlUtil {
 	public static Connection getConnection(String databaseName) {
 		try {
 			// Class.forName("net.sourceforge.jtds.jdbc.Driver");
+			Driver d = null;
 			// String url =
 			// "jdbc:jtds:sqlserver://10.100.254.96:1433;DatabaseName=BJC_Finance_Test";
 			String url = "jdbc:sqlserver://10.100.254.96:1433;DatabaseName="

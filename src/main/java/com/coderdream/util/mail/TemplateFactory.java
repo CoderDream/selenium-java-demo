@@ -154,6 +154,15 @@ public class TemplateFactory {
 		return out.toString();
 	}
 	
+	public static String generateHtmlFromFtlWithMapObject(String name,
+			Map<String, Object> map) throws IOException, TemplateException {
+		Writer out = new StringWriter(2048);
+		Template temp = getTemplateByName(name);
+		temp.setEncoding(ENCODING);
+		temp.process(map, out);
+		return out.toString();
+	}
+	
 	/**
 	 * 
 	 * @Date:2014年4月26日 下午3:24:37

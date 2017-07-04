@@ -210,14 +210,16 @@ td.TextItemSigRightMod {
 				class="TextSegElementIdentifier">test</span><span
 				class="TextSegElementOperator">;</span></td>
 		</tr>
-		<#-- 使用FTL指令 --> 
-		<#list ["星期一","星期二","星期三","星期四","星期五"] as tableCompareBean><br>  ${x_index +1}.${x}
-<tr class="SectionMiddle">
-			<td class="TextItemNum AlignRight">${tableCompareBean.leftColumnName}</td>
-			<td class="TextItemSame">${tableCompareBean.leftOthers}</td>
-			<td class="AlignCenter">${tableCompareBean.compareResult}</td>
-			<td class="TextItemNum AlignRight">${tableCompareBean.rightColumnName}</td>
-			<td class="TextItemSame">${tableCompareBean.rigthOthers}</td>
+		<!-- 使用FTL指令 -->
+		<#list list as tableCompareBean>
+		<br>
+		<tr class="SectionMiddle">
+			<td class="TextItemNum AlignRight">${tableCompareBean.leftColumnName??}</td>
+			<td class="TextItemSame">${tableCompareBean.leftOthers??}</td>
+			<td class="AlignCenter">${tableCompareBean.compareResult?string('yes', 'no')}</td>
+			<td class="TextItemNum AlignRight">${tableCompareBean.rightColumnName??}</td>
+			<td class="TextItemSame">${tableCompareBean.rigthOthers??}</td>
+		</tr>
 		</#list>
 		<!-- 
 				<tr class="SectionMiddle">
@@ -255,7 +257,7 @@ td.TextItemSigRightMod {
 				class="TextSegElementKeyword">try</span> <span
 				class="TextSegElementOperator">{</span></td>
 		</tr>
-		
+
 	</table>
 	<br />
 </body>
