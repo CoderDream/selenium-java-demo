@@ -125,85 +125,85 @@ public class MailUtilTest {
 		}
 	}
 	
-	@Test
-	public void testMailTemplate_05() {
-		String templateName = "template_5.html";
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("username", "何三妹");
-		map.put("password", "123456");
-		map.put("age", "27");
-		map.put("sex", "女");
+//	@Test
+//	public void testMailTemplate_05() {
+//		String templateName = "template_5.html";
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put("username", "何三妹");
+//		map.put("password", "123456");
+//		map.put("age", "27");
+//		map.put("sex", "女");
+//
+//		List<TableCompareBean> tableCompareBeanListTotal = new ArrayList<TableCompareBean>();
+//		String databaseName1 = "BJC_Finance";
+//		String databaseName2 = "BJC_Finance_Test";
+//		Map<String, List<TableCompareBean>> totalTableCompareBeanListMap = MssqlService
+//				.compareTableConstructDiff(databaseName1, databaseName2);
+//		int i = 0;
+//		for (String tableName : totalTableCompareBeanListMap.keySet()) {
+//			List<TableCompareBean> tableCompareBeanList = totalTableCompareBeanListMap
+//					.get(tableName);
+//			System.out.println("###tableName\t" + tableName);
+//			for (TableCompareBean tableCompareBean : tableCompareBeanList) {
+//				System.out.println(tableCompareBean);
+//			}
+//			i++;
+//			if (i < 5) {
+//				tableCompareBeanListTotal.addAll(tableCompareBeanList);
+//			}
+//		}
+//
+//		try {
+//			MailUtil.sendMailByTemplate("xulin.wh@qq.com", "test",
+//					tableCompareBeanListTotal, templateName);
+//		} catch (IOException e) {
+//			log.error(e.toString(), e);
+//		} catch (TemplateException e) {
+//			log.error(e.toString(), e);
+//		} catch (MessagingException e) {
+//			log.error(e.toString(), e);
+//		}
+//	}
 
-		List<TableCompareBean> tableCompareBeanListTotal = new ArrayList<TableCompareBean>();
-		String databaseName1 = "BJC_Finance";
-		String databaseName2 = "BJC_Finance_Test";
-		Map<String, List<TableCompareBean>> totalTableCompareBeanListMap = MssqlService
-				.compareTableConstructDiff(databaseName1, databaseName2);
-		int i = 0;
-		for (String tableName : totalTableCompareBeanListMap.keySet()) {
-			List<TableCompareBean> tableCompareBeanList = totalTableCompareBeanListMap
-					.get(tableName);
-			System.out.println("###tableName\t" + tableName);
-			for (TableCompareBean tableCompareBean : tableCompareBeanList) {
-				System.out.println(tableCompareBean);
-			}
-			i++;
-			if (i < 5) {
-				tableCompareBeanListTotal.addAll(tableCompareBeanList);
-			}
-		}
-
-		try {
-			MailUtil.sendMailByTemplateWithListObject("xulin.wh@qq.com", "test",
-					tableCompareBeanListTotal, templateName);
-		} catch (IOException e) {
-			log.error(e.toString(), e);
-		} catch (TemplateException e) {
-			log.error(e.toString(), e);
-		} catch (MessagingException e) {
-			log.error(e.toString(), e);
-		}
-	}
-
-	@Test
-	public void testMailTemplate_06() {
-		String templateName = "template_6.html";
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("username", "何三妹");
-		map.put("password", "123456");
-		map.put("age", "27");
-		map.put("sex", "女");
-
-		List<TableCompareBean> tableCompareBeanListTotal = new ArrayList<TableCompareBean>();
-		String databaseName1 = "BJC_Finance";
-		String databaseName2 = "BJC_Finance_Test";
-		Map<String, List<TableCompareBean>> totalTableCompareBeanListMap = MssqlService
-				.compareTableConstructDiff(databaseName1, databaseName2);
-		int i = 0;
-		for (String tableName : totalTableCompareBeanListMap.keySet()) {
-			List<TableCompareBean> tableCompareBeanList = totalTableCompareBeanListMap
-					.get(tableName);
-			System.out.println("###tableName\t" + tableName);
-			for (TableCompareBean tableCompareBean : tableCompareBeanList) {
-				System.out.println(tableCompareBean);
-			}
-			i++;
-			if (i < 5) {
-				tableCompareBeanListTotal.addAll(tableCompareBeanList);
-			}
-		}
-
-		try {
-			MailUtil.sendMailByTemplateWithListObject("xulin.wh@qq.com", "test",
-					tableCompareBeanListTotal, templateName);
-		} catch (IOException e) {
-			log.error(e.toString(), e);
-		} catch (TemplateException e) {
-			log.error(e.toString(), e);
-		} catch (MessagingException e) {
-			log.error(e.toString(), e);
-		}
-	}
+//	@Test
+//	public void testMailTemplate_06() {
+//		String templateName = "template_6.html";
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put("username", "何三妹");
+//		map.put("password", "123456");
+//		map.put("age", "27");
+//		map.put("sex", "女");
+//
+//		List<TableCompareBean> tableCompareBeanListTotal = new ArrayList<TableCompareBean>();
+//		String databaseName1 = "BJC_Finance";
+//		String databaseName2 = "BJC_Finance_Test";
+//		Map<String, List<TableCompareBean>> totalTableCompareBeanListMap = MssqlService
+//				.compareTableConstructDiff(databaseName1, databaseName2);
+//		int i = 0;
+//		for (String tableName : totalTableCompareBeanListMap.keySet()) {
+//			List<TableCompareBean> tableCompareBeanList = totalTableCompareBeanListMap
+//					.get(tableName);
+//			System.out.println("###tableName\t" + tableName);
+//			for (TableCompareBean tableCompareBean : tableCompareBeanList) {
+//				System.out.println(tableCompareBean);
+//			}
+//			i++;
+//			if (i < 5) {
+//				tableCompareBeanListTotal.addAll(tableCompareBeanList);
+//			}
+//		}
+//
+//		try {
+//			MailUtil.sendMailByTemplateWithListObject("xulin.wh@qq.com", "test",
+//					tableCompareBeanListTotal, templateName);
+//		} catch (IOException e) {
+//			log.error(e.toString(), e);
+//		} catch (TemplateException e) {
+//			log.error(e.toString(), e);
+//		} catch (MessagingException e) {
+//			log.error(e.toString(), e);
+//		}
+//	}
 
 	@Test
 	public void testMail() {
