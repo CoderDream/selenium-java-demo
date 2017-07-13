@@ -4,15 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FileUtil {
 
 	public static void main(String[] args) {
-		method05();
+		method09();
 	}
 
 	public static void method01() {
@@ -117,6 +117,7 @@ public class FileUtil {
 				}
 			}
 
+			System.out.println(index);
 			// INSERT INTO [PDRC_Dictionary]
 			// ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES
 			// (<ID, int,>
@@ -188,7 +189,7 @@ public class FileUtil {
 					// System.out.println(str);
 				}
 			}
-
+			System.out.println(index);
 			// INSERT INTO [PDRC_Dictionary]
 			// ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES
 			// (<ID, int,>
@@ -280,4 +281,166 @@ public class FileUtil {
 		}
 	}
 
+	public static void method06() {
+		List<String> major = new ArrayList<String>();
+		String str = "JAVA:DOTNET:BI:DBA:H5:ANDROID:iOS:大数据（Hadoop、Spark等）:云计算（OpenStack、Azue等）:微服务:功能测试:性能测试:自动化测试:配置管理:敏捷开发:DevOps:ITIL";
+		String[] strArray = str.split(":");
+		int len = strArray.length;
+		for (int i = 0; i < len; i++) {
+			String string = strArray[i];
+			major.add(string);
+		}
+
+		int index = 3583;
+		StringBuffer stringBuffer = new StringBuffer(
+				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
+		String strParent = stringBuffer.toString() + index
+				+ ", N'SkillInfo', 'Skill', 'Skill', null, null );";
+		System.out.println(strParent);
+		int ind = index + 1;
+		for (String string : major) {
+			String sql = stringBuffer.toString() + ind + ", N'SkillInfo', N'S"
+					+ String.format("%02d", ind - index) + "', N'" + string + "', "
+					+ index + ", '');";
+			System.out.println(sql);
+			ind++;
+			// System.out.println(String.format("%04d", ind));
+		}
+
+	}
+
+	public static void method07() {
+		List<String> major = new ArrayList<String>();
+		String str = "ERP:CRM:PLM:FIN:HR";
+		String[] strArray = str.split(":");
+		int len = strArray.length;
+		for (int i = 0; i < len; i++) {
+			String string = strArray[i];
+			major.add(string);
+		}
+
+		String name = "Domain";
+
+		int index = 3601;
+		StringBuffer stringBuffer = new StringBuffer(
+				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
+		String strParent = stringBuffer.toString() + index + ", N'" + name
+				+ "Info', '" + name + "',N'" + name + "', null, null );";
+		System.out.println(strParent);
+		int ind = index + 1;
+		for (String string : major) {
+			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'D"
+					+ String.format("%02d", ind - index) + "', N'" + string + "', "
+					+ index + ", '');";
+			System.out.println(sql);
+			ind++;
+			// System.out.println(String.format("%04d", ind));
+		}
+	}
+
+	public static void method00() {
+		// List<String> major = new ArrayList<String>();
+
+		// value ParentID Remark
+		// 1 参与过相关领域1到2个小型项目，非主导角色，大体了解一些领域里关键概念
+		// 部分精通 1 在领域内的局部有5000小时以上工作经历，对局部概念、流程相当熟悉
+		// 领域专家 1 对领域内的全局到局部有充分的掌握，10000小时以上工作经历
+		// String str = "ERP:CRM:PLM:FIN:HR";
+		// String[] strArray = str.split(":");
+		// int len = strArray.length;
+		// for (int i = 0; i < len; i++) {
+		// String string = strArray[i];
+		// major.add(string);
+		// }
+
+		String name = "ExperienceLevel";
+
+		int index = 1;
+		StringBuffer stringBuffer = new StringBuffer(
+				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
+		String strParent = stringBuffer.toString() + index + ", N'" + name
+				+ "Info', '" + name + "',N'" + name + "', null, null );";
+		System.out.println(strParent);
+		int ind = index + 1;
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("轻度接触", "参与过相关领域1到2个小型项目，非主导角色，大体了解一些领域里关键概念");
+		map.put("部分精通", "在领域内的局部有5000小时以上工作经历，对局部概念、流程相当熟悉 ");
+		map.put("领域专家", "对领域内的全局到局部有充分的掌握，10000小时以上工作经历");
+
+		for (Map.Entry<String, String> entry : map.entrySet()) {
+
+			// System.out.println("Key = " + entry.getKey() + ", Value = " +
+			// entry.getValue());
+
+			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'EL"
+					+ String.format("%02d", ind - index) + "', N'" + entry.getKey()
+					+ "', " + index + ", '" + entry.getValue() + "');";
+			System.out.println(sql);
+			ind++;
+		}
+
+		// System.out.println(String.format("%04d", ind));
+	}
+
+	// 开启/结束
+	
+	public static void method08() {
+		List<String> major = new ArrayList<String>();
+		String str = "开启:结束";
+		String[] strArray = str.split(":");
+		int len = strArray.length;
+		for (int i = 0; i < len; i++) {
+			String string = strArray[i];
+			major.add(string);
+		}
+
+		String name = "TaskState";
+
+		int index = 3607;
+		StringBuffer stringBuffer = new StringBuffer(
+				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
+		String strParent = stringBuffer.toString() + index + ", N'" + name
+				+ "Info', '" + name + "',N'" + name + "', null, null );";
+		System.out.println(strParent);
+		int ind = index + 1;
+		for (String string : major) {
+			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'D"
+					+ String.format("%02d", ind - index) + "', N'" + string + "', "
+					+ index + ", '');";
+			System.out.println(sql);
+			ind++;
+			// System.out.println(String.format("%04d", ind));
+		}
+	}
+	
+	// 了解:掌握:熟练:精通
+	
+	public static void method09() {
+		List<String> major = new ArrayList<String>();
+		String str = "了解:掌握:熟练:精通";
+		String[] strArray = str.split(":");
+		int len = strArray.length;
+		for (int i = 0; i < len; i++) {
+			String string = strArray[i];
+			major.add(string);
+		}
+
+		String name = "Proficiency";
+
+		int index = 3610;
+		StringBuffer stringBuffer = new StringBuffer(
+				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
+		String strParent = stringBuffer.toString() + index + ", N'" + name
+				+ "Info', '" + name + "',N'" + name + "', null, null );";
+		System.out.println(strParent);
+		int ind = index + 1;
+		for (String string : major) {
+			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'PR"
+					+ String.format("%02d", ind - index) + "', N'" + string + "', "
+					+ index + ", '');";
+			System.out.println(sql);
+			ind++;
+			// System.out.println(String.format("%04d", ind));
+		}
+	}
 }
