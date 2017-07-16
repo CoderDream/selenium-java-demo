@@ -1,12 +1,9 @@
 package com.coderdream.util.mail;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 import javax.mail.MessagingException;
-
-import com.coderdream.db.bean.TableCompareBean;
 
 import freemarker.template.TemplateException;
 
@@ -15,7 +12,7 @@ import freemarker.template.TemplateException;
  * 
  * @date 2014年4月26日 下午3:30:04
  * @author 曹志飞
- * @Description:
+ * @Description:	
  * @project mailUtil
  */
 public class MailUtil {
