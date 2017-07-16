@@ -12,7 +12,7 @@ import java.util.Map;
 public class FileUtil {
 
 	public static void main(String[] args) {
-		method09();
+		method06();
 	}
 
 	public static void method01() {
@@ -292,21 +292,8 @@ public class FileUtil {
 		}
 
 		int index = 3583;
-		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
-		String strParent = stringBuffer.toString() + index
-				+ ", N'SkillInfo', 'Skill', 'Skill', null, null );";
-		System.out.println(strParent);
-		int ind = index + 1;
-		for (String string : major) {
-			String sql = stringBuffer.toString() + ind + ", N'SkillInfo', N'S"
-					+ String.format("%02d", ind - index) + "', N'" + string + "', "
-					+ index + ", '');";
-			System.out.println(sql);
-			ind++;
-			// System.out.println(String.format("%04d", ind));
-		}
-
+		String name = "Skill";
+		genSql(major, name, index);
 	}
 
 	public static void method07() {
@@ -320,22 +307,8 @@ public class FileUtil {
 		}
 
 		String name = "Domain";
-
 		int index = 3601;
-		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
-		String strParent = stringBuffer.toString() + index + ", N'" + name
-				+ "Info', '" + name + "',N'" + name + "', null, null );";
-		System.out.println(strParent);
-		int ind = index + 1;
-		for (String string : major) {
-			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'D"
-					+ String.format("%02d", ind - index) + "', N'" + string + "', "
-					+ index + ", '');";
-			System.out.println(sql);
-			ind++;
-			// System.out.println(String.format("%04d", ind));
-		}
+		genSql(major, name, index);
 	}
 
 	public static void method00() {
@@ -383,7 +356,7 @@ public class FileUtil {
 	}
 
 	// 开启/结束
-	
+
 	public static void method08() {
 		List<String> major = new ArrayList<String>();
 		String str = "开启:结束";
@@ -397,24 +370,29 @@ public class FileUtil {
 		String name = "TaskState";
 
 		int index = 3607;
+		
+		genSql(major, name, index);
+	}
+
+	private static void genSql(List<String> major, String name, int index) {
 		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
+				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (");
 		String strParent = stringBuffer.toString() + index + ", N'" + name
-				+ "Info', '" + name + "',N'" + name + "', null, null );";
+				+ "Info', '" + name + "',N'" + name + "', null, null, null );";
 		System.out.println(strParent);
 		int ind = index + 1;
 		for (String string : major) {
 			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'D"
 					+ String.format("%02d", ind - index) + "', N'" + string + "', "
-					+ index + ", '');";
+					+ index + ", " + (ind - index) + ",'');";
 			System.out.println(sql);
 			ind++;
 			// System.out.println(String.format("%04d", ind));
 		}
 	}
-	
+
 	// 了解:掌握:熟练:精通
-	
+
 	public static void method09() {
 		List<String> major = new ArrayList<String>();
 		String str = "了解:掌握:熟练:精通";
