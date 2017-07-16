@@ -15,6 +15,50 @@ public class FileUtil {
 		method06();
 	}
 
+	public static void method00() {
+		// List<String> major = new ArrayList<String>();
+
+		// value ParentID Remark
+		// 1 参与过相关领域1到2个小型项目，非主导角色，大体了解一些领域里关键概念
+		// 部分精通 1 在领域内的局部有5000小时以上工作经历，对局部概念、流程相当熟悉
+		// 领域专家 1 对领域内的全局到局部有充分的掌握，10000小时以上工作经历
+		// String str = "ERP:CRM:PLM:FIN:HR";
+		// String[] strArray = str.split(":");
+		// int len = strArray.length;
+		// for (int i = 0; i < len; i++) {
+		// String string = strArray[i];
+		// major.add(string);
+		// }
+
+		String name = "ExperienceLevel";
+
+		int index = 1;
+		StringBuffer stringBuffer = new StringBuffer(
+				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
+		String strParent = stringBuffer.toString() + index + ", N'" + name
+				+ "Info', '" + name + "',N'" + name + "', null, null );";
+		System.out.println(strParent);
+		int ind = index + 1;
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("轻度接触", "参与过相关领域1到2个小型项目，非主导角色，大体了解一些领域里关键概念");
+		map.put("部分精通", "在领域内的局部有5000小时以上工作经历，对局部概念、流程相当熟悉 ");
+		map.put("领域专家", "对领域内的全局到局部有充分的掌握，10000小时以上工作经历");
+
+		for (Map.Entry<String, String> entry : map.entrySet()) {
+
+			// System.out.println("Key = " + entry.getKey() + ", Value = " +
+			// entry.getValue());
+
+			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'EL"
+					+ String.format("%02d", ind - index) + "', N'" + entry.getKey()
+					+ "', " + index + ", '" + entry.getValue() + "');";
+			System.out.println(sql);
+			ind++;
+		}
+
+		// System.out.println(String.format("%04d", ind));
+	}
+
 	public static void method01() {
 
 		try {
@@ -239,19 +283,10 @@ public class FileUtil {
 		major.add("离项");
 		major.add("离职");
 
-		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary]	([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
-		String strParent = stringBuffer.toString()
-				+ "3570, N'EmployeeStateInfo', 'EmployeeState', 'EmployeeState', null, null );";
-		System.out.println(strParent);
-		int ind = 3571;
-		for (String string : major) {
-			String sql = stringBuffer.toString() + ind + ", N'EmployeeStateInfo', N'E"
-					+ String.format("%04d", ind - 5) + "', N'" + string + "', 3570, '');";
-			System.out.println(sql);
-			ind++;
-			// System.out.println(String.format("%04d", ind));
-		}
+		String name = "EmployeeState";
+		String prefix = "CC";
+		int index = 3570;
+		genSql(major, name, prefix, index);
 	}
 
 	public static void method05() {
@@ -265,20 +300,9 @@ public class FileUtil {
 		major.add("大连");
 		major.add("重庆");
 		int index = 3574;
-		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
-		String strParent = stringBuffer.toString() + index
-				+ ", N'CandidateCityInfo', 'CandidateCity', 'CandidateCity', null, null );";
-		System.out.println(strParent);
-		int ind = index + 1;
-		for (String string : major) {
-			String sql = stringBuffer.toString() + ind
-					+ ", N'CandidateCityInfo', N'CC" + String.format("%02d", ind - index)
-					+ "', N'" + string + "', " + index + ", '');";
-			System.out.println(sql);
-			ind++;
-			// System.out.println(String.format("%04d", ind));
-		}
+		String name = "CandidateCity";
+		String prefix = "CC";
+		genSql(major, name, prefix, index);
 	}
 
 	public static void method06() {
@@ -293,7 +317,8 @@ public class FileUtil {
 
 		int index = 3583;
 		String name = "Skill";
-		genSql(major, name, index);
+		String prefix = "S";
+		genSql(major, name, prefix, index);
 	}
 
 	public static void method07() {
@@ -308,55 +333,11 @@ public class FileUtil {
 
 		String name = "Domain";
 		int index = 3601;
-		genSql(major, name, index);
-	}
-
-	public static void method00() {
-		// List<String> major = new ArrayList<String>();
-
-		// value ParentID Remark
-		// 1 参与过相关领域1到2个小型项目，非主导角色，大体了解一些领域里关键概念
-		// 部分精通 1 在领域内的局部有5000小时以上工作经历，对局部概念、流程相当熟悉
-		// 领域专家 1 对领域内的全局到局部有充分的掌握，10000小时以上工作经历
-		// String str = "ERP:CRM:PLM:FIN:HR";
-		// String[] strArray = str.split(":");
-		// int len = strArray.length;
-		// for (int i = 0; i < len; i++) {
-		// String string = strArray[i];
-		// major.add(string);
-		// }
-
-		String name = "ExperienceLevel";
-
-		int index = 1;
-		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
-		String strParent = stringBuffer.toString() + index + ", N'" + name
-				+ "Info', '" + name + "',N'" + name + "', null, null );";
-		System.out.println(strParent);
-		int ind = index + 1;
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("轻度接触", "参与过相关领域1到2个小型项目，非主导角色，大体了解一些领域里关键概念");
-		map.put("部分精通", "在领域内的局部有5000小时以上工作经历，对局部概念、流程相当熟悉 ");
-		map.put("领域专家", "对领域内的全局到局部有充分的掌握，10000小时以上工作经历");
-
-		for (Map.Entry<String, String> entry : map.entrySet()) {
-
-			// System.out.println("Key = " + entry.getKey() + ", Value = " +
-			// entry.getValue());
-
-			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'EL"
-					+ String.format("%02d", ind - index) + "', N'" + entry.getKey()
-					+ "', " + index + ", '" + entry.getValue() + "');";
-			System.out.println(sql);
-			ind++;
-		}
-
-		// System.out.println(String.format("%04d", ind));
+		String prefix = "D";
+		genSql(major, name, prefix, index);
 	}
 
 	// 开启/结束
-
 	public static void method08() {
 		List<String> major = new ArrayList<String>();
 		String str = "开启:结束";
@@ -368,13 +349,13 @@ public class FileUtil {
 		}
 
 		String name = "TaskState";
-
 		int index = 3607;
-		
-		genSql(major, name, index);
+		String prefix = "TS";
+		genSql(major, name, prefix, index);
 	}
 
-	private static void genSql(List<String> major, String name, int index) {
+	private static void genSql(List<String> major, String name, String prefix,
+			int index) {
 		StringBuffer stringBuffer = new StringBuffer(
 				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (");
 		String strParent = stringBuffer.toString() + index + ", N'" + name
@@ -382,9 +363,9 @@ public class FileUtil {
 		System.out.println(strParent);
 		int ind = index + 1;
 		for (String string : major) {
-			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'D"
-					+ String.format("%02d", ind - index) + "', N'" + string + "', "
-					+ index + ", " + (ind - index) + ",'');";
+			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'"
+					+ prefix + String.format("%02d", ind - index) + "', N'" + string
+					+ "', " + index + ", " + (ind - index) + ",'');";
 			System.out.println(sql);
 			ind++;
 			// System.out.println(String.format("%04d", ind));
@@ -392,7 +373,6 @@ public class FileUtil {
 	}
 
 	// 了解:掌握:熟练:精通
-
 	public static void method09() {
 		List<String> major = new ArrayList<String>();
 		String str = "了解:掌握:熟练:精通";
@@ -404,21 +384,8 @@ public class FileUtil {
 		}
 
 		String name = "Proficiency";
-
 		int index = 3610;
-		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (");
-		String strParent = stringBuffer.toString() + index + ", N'" + name
-				+ "Info', '" + name + "',N'" + name + "', null, null );";
-		System.out.println(strParent);
-		int ind = index + 1;
-		for (String string : major) {
-			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'PR"
-					+ String.format("%02d", ind - index) + "', N'" + string + "', "
-					+ index + ", '');";
-			System.out.println(sql);
-			ind++;
-			// System.out.println(String.format("%04d", ind));
-		}
+		String prefix = "P";
+		genSql(major, name, prefix, index);
 	}
 }
