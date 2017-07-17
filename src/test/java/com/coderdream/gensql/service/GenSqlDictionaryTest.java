@@ -1,4 +1,4 @@
-package com.coderdream.util;
+package com.coderdream.gensql.service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,13 +9,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FileUtil {
+import org.junit.Before;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-	public static void main(String[] args) {
-		method06();
+public class GenSqlDictionaryTest {
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(GenSqlDictionaryTest.class);
+
+	private String fileFolder;
+
+	@Before
+	public void setUp() throws Exception {
+		fileFolder = getClass().getResource("../../../../").getFile()
+				.toString();
 	}
 
-	public static void method00() {
+	@Test
+	public void method00() {
 		// List<String> major = new ArrayList<String>();
 
 		// value ParentID Remark
@@ -49,9 +62,10 @@ public class FileUtil {
 			// System.out.println("Key = " + entry.getKey() + ", Value = " +
 			// entry.getValue());
 
-			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'EL"
-					+ String.format("%02d", ind - index) + "', N'" + entry.getKey()
-					+ "', " + index + ", '" + entry.getValue() + "');";
+			String sql = stringBuffer.toString() + ind + ", N'" + name
+					+ "Info', N'EL" + String.format("%02d", ind - index)
+					+ "', N'" + entry.getKey() + "', " + index + ", '"
+					+ entry.getValue() + "');";
 			System.out.println(sql);
 			ind++;
 		}
@@ -59,7 +73,8 @@ public class FileUtil {
 		// System.out.println(String.format("%04d", ind));
 	}
 
-	public static void method01() {
+	@Test
+	public void method01() {
 
 		try {
 			// read file content from file
@@ -107,8 +122,9 @@ public class FileUtil {
 			// System.out.println("size:\t" + major.size());
 			int ind = 6;
 			for (String string : major) {
-				String sql = stringBuffer.toString() + ind + ", N'MajorInfo', N'M"
-						+ String.format("%04d", ind - 5) + "', N'" + string + "', 6, '');";
+				String sql = stringBuffer.toString() + ind
+						+ ", N'MajorInfo', N'M" + String.format("%04d", ind - 5)
+						+ "', N'" + string + "', 6, '');";
 				System.out.println(sql);
 				ind++;
 				// System.out.println(String.format("%04d", ind));
@@ -132,7 +148,8 @@ public class FileUtil {
 
 	}
 
-	public static void method02() {
+	@Test
+	public void method02() {
 
 		try {
 			// read file content from file
@@ -179,7 +196,8 @@ public class FileUtil {
 			// System.out.println("size:\t" + major.size());
 			int ind = 1137;
 			for (String string : major) {
-				String sql = stringBuffer.toString() + ind + ", N'UniversityInfo', N'U"
+				String sql = stringBuffer.toString() + ind
+						+ ", N'UniversityInfo', N'U"
 						+ String.format("%04d", ind - 5) + "', N'" + string
 						+ "', 1136, '');";
 				System.out.println(sql);
@@ -205,7 +223,8 @@ public class FileUtil {
 
 	}
 
-	public static void method03() {
+	@Test
+	public void method03() {
 
 		try {
 			// read file content from file
@@ -251,7 +270,8 @@ public class FileUtil {
 			// System.out.println("size:\t" + major.size());
 			int ind = 3566;
 			for (String string : major) {
-				String sql = stringBuffer.toString() + ind + ", N'EducationInfo', N'E"
+				String sql = stringBuffer.toString() + ind
+						+ ", N'EducationInfo', N'E"
 						+ String.format("%04d", ind - 5) + "', N'" + string
 						+ "', 3565, '');";
 				System.out.println(sql);
@@ -277,7 +297,8 @@ public class FileUtil {
 
 	}
 
-	public static void method04() {
+	@Test
+	public void method04_EmployeeState() {
 		List<String> major = new ArrayList<String>();
 		major.add("在项");
 		major.add("离项");
@@ -289,7 +310,8 @@ public class FileUtil {
 		genSql(major, name, prefix, index);
 	}
 
-	public static void method05() {
+	@Test
+	public void method05_CandidateCity() {
 		List<String> major = new ArrayList<String>();
 		major.add("不限");
 		major.add("武汉");
@@ -305,7 +327,8 @@ public class FileUtil {
 		genSql(major, name, prefix, index);
 	}
 
-	public static void method06() {
+	@Test
+	public void method06() {
 		List<String> major = new ArrayList<String>();
 		String str = "JAVA:DOTNET:BI:DBA:H5:ANDROID:iOS:大数据（Hadoop、Spark等）:云计算（OpenStack、Azue等）:微服务:功能测试:性能测试:自动化测试:配置管理:敏捷开发:DevOps:ITIL";
 		String[] strArray = str.split(":");
@@ -321,7 +344,8 @@ public class FileUtil {
 		genSql(major, name, prefix, index);
 	}
 
-	public static void method07() {
+	@Test
+	public void method07() {
 		List<String> major = new ArrayList<String>();
 		String str = "ERP:CRM:PLM:FIN:HR";
 		String[] strArray = str.split(":");
@@ -338,7 +362,8 @@ public class FileUtil {
 	}
 
 	// 开启/结束
-	public static void method08() {
+	@Test
+	public void method08_TaskState() {
 		List<String> major = new ArrayList<String>();
 		String str = "开启:结束";
 		String[] strArray = str.split(":");
@@ -356,16 +381,20 @@ public class FileUtil {
 
 	private static void genSql(List<String> major, String name, String prefix,
 			int index) {
+		StringBuffer deleteString = new StringBuffer(
+				"DELETE FROM [PDRC_Dictionary] WHERE ParentID = " + index);
+		System.out.println(deleteString);
 		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (");
+				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[SortIndex],[Remark])VALUES (");
 		String strParent = stringBuffer.toString() + index + ", N'" + name
 				+ "Info', '" + name + "',N'" + name + "', null, null, null );";
 		System.out.println(strParent);
 		int ind = index + 1;
 		for (String string : major) {
-			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'"
-					+ prefix + String.format("%02d", ind - index) + "', N'" + string
-					+ "', " + index + ", " + (ind - index) + ",'');";
+			String sql = stringBuffer.toString() + ind + ", N'" + name
+					+ "Info', N'" + prefix + String.format("%02d", ind - index)
+					+ "', N'" + string + "', " + index + ", " + (ind - index)
+					+ ",'');";
 			System.out.println(sql);
 			ind++;
 			// System.out.println(String.format("%04d", ind));
@@ -373,7 +402,8 @@ public class FileUtil {
 	}
 
 	// 了解:掌握:熟练:精通
-	public static void method09() {
+	@Test
+	public void method09_Proficiency() {
 		List<String> major = new ArrayList<String>();
 		String str = "了解:掌握:熟练:精通";
 		String[] strArray = str.split(":");
@@ -388,4 +418,5 @@ public class FileUtil {
 		String prefix = "P";
 		genSql(major, name, prefix, index);
 	}
+
 }
