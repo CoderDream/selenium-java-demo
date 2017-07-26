@@ -31,4 +31,16 @@ INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark]
 INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (3612, N'ProficiencyInfo', N'PR02', N'掌握', 3610, '');
 INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (3613, N'ProficiencyInfo', N'PR03', N'熟练', 3610, '');
 INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark])VALUES (3614, N'ProficiencyInfo', N'PR04', N'精通', 3610, '');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3615, N'ReasonableObjectiveInfo', '目标合理性',N'ReasonableObjective', null, null, null );
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3616, N'ReasonableObjectiveInfo', N'RO01', N'质量目标合理性', 3615, 1,'');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3617, N'ReasonableObjectiveInfo', N'RO02', N'计划收入计划成本合理性', 3615, 2,'');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3618, N'ReasonableObjectiveInfo', N'RO03', N'变更修正合理性', 3615, 3,'');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3619, N'OperationStandardInfo', '操作规范性',N'OperationStandard', null, null, null );
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3620, N'OperationStandardInfo', N'OS01', N'立项结项及时性', 3619, 1,'');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3621, N'OperationStandardInfo', N'OS02', N'主项目子项目挂接正确性', 3619, 2,'');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3622, N'OperationStandardInfo', N'OS03', N'人力挂接项目（含IDLE）正确性', 3619, 3,'');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3623, N'OperationStandardInfo', N'OS04', N'项目评价合理性', 3619, 4,'');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3624, N'AccurateDataInfo', '数据准确性',N'AccurateData', null, null, null );
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3625, N'AccurateDataInfo', N'AD01', N'质量评价数据填报准确性', 3624, 1,'');
+INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (3626, N'AccurateDataInfo', N'AD02', N'人力地图数据准确性', 3624, 2,'');
 

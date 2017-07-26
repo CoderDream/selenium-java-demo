@@ -12,7 +12,9 @@ import java.util.Map;
 public class FileUtil {
 
 	public static void main(String[] args) {
-		method06();
+		method10();
+		method11();
+		method12();
 	}
 
 	public static void method00() {
@@ -49,9 +51,10 @@ public class FileUtil {
 			// System.out.println("Key = " + entry.getKey() + ", Value = " +
 			// entry.getValue());
 
-			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'EL"
-					+ String.format("%02d", ind - index) + "', N'" + entry.getKey()
-					+ "', " + index + ", '" + entry.getValue() + "');";
+			String sql = stringBuffer.toString() + ind + ", N'" + name
+					+ "Info', N'EL" + String.format("%02d", ind - index)
+					+ "', N'" + entry.getKey() + "', " + index + ", '"
+					+ entry.getValue() + "');";
 			System.out.println(sql);
 			ind++;
 		}
@@ -60,7 +63,6 @@ public class FileUtil {
 	}
 
 	public static void method01() {
-
 		try {
 			// read file content from file
 			StringBuffer sb = new StringBuffer("");
@@ -107,8 +109,9 @@ public class FileUtil {
 			// System.out.println("size:\t" + major.size());
 			int ind = 6;
 			for (String string : major) {
-				String sql = stringBuffer.toString() + ind + ", N'MajorInfo', N'M"
-						+ String.format("%04d", ind - 5) + "', N'" + string + "', 6, '');";
+				String sql = stringBuffer.toString() + ind
+						+ ", N'MajorInfo', N'M" + String.format("%04d", ind - 5)
+						+ "', N'" + string + "', 6, '');";
 				System.out.println(sql);
 				ind++;
 				// System.out.println(String.format("%04d", ind));
@@ -133,7 +136,6 @@ public class FileUtil {
 	}
 
 	public static void method02() {
-
 		try {
 			// read file content from file
 			StringBuffer sb = new StringBuffer("");
@@ -179,7 +181,8 @@ public class FileUtil {
 			// System.out.println("size:\t" + major.size());
 			int ind = 1137;
 			for (String string : major) {
-				String sql = stringBuffer.toString() + ind + ", N'UniversityInfo', N'U"
+				String sql = stringBuffer.toString() + ind
+						+ ", N'UniversityInfo', N'U"
 						+ String.format("%04d", ind - 5) + "', N'" + string
 						+ "', 1136, '');";
 				System.out.println(sql);
@@ -206,7 +209,6 @@ public class FileUtil {
 	}
 
 	public static void method03() {
-
 		try {
 			// read file content from file
 			StringBuffer sb = new StringBuffer("");
@@ -229,7 +231,6 @@ public class FileUtil {
 						String string = strArray[i];
 						major.add(string);
 					}
-
 					// System.out.println(str);
 				}
 			}
@@ -251,7 +252,8 @@ public class FileUtil {
 			// System.out.println("size:\t" + major.size());
 			int ind = 3566;
 			for (String string : major) {
-				String sql = stringBuffer.toString() + ind + ", N'EducationInfo', N'E"
+				String sql = stringBuffer.toString() + ind
+						+ ", N'EducationInfo', N'E"
 						+ String.format("%04d", ind - 5) + "', N'" + string
 						+ "', 3565, '');";
 				System.out.println(sql);
@@ -286,7 +288,7 @@ public class FileUtil {
 		String name = "EmployeeState";
 		String prefix = "CC";
 		int index = 3570;
-		genSql(major, name, prefix, index);
+		genSql(major, name, name, prefix, index);
 	}
 
 	public static void method05() {
@@ -302,7 +304,7 @@ public class FileUtil {
 		int index = 3574;
 		String name = "CandidateCity";
 		String prefix = "CC";
-		genSql(major, name, prefix, index);
+		genSql(major, name, name, prefix, index);
 	}
 
 	public static void method06() {
@@ -318,7 +320,7 @@ public class FileUtil {
 		int index = 3583;
 		String name = "Skill";
 		String prefix = "S";
-		genSql(major, name, prefix, index);
+		genSql(major, name, name, prefix, index);
 	}
 
 	public static void method07() {
@@ -334,7 +336,7 @@ public class FileUtil {
 		String name = "Domain";
 		int index = 3601;
 		String prefix = "D";
-		genSql(major, name, prefix, index);
+		genSql(major, name, name, prefix, index);
 	}
 
 	// 开启/结束
@@ -351,21 +353,22 @@ public class FileUtil {
 		String name = "TaskState";
 		int index = 3607;
 		String prefix = "TS";
-		genSql(major, name, prefix, index);
+		genSql(major, name, name, prefix, index);
 	}
 
-	private static void genSql(List<String> major, String name, String prefix,
-			int index) {
+	private static void genSql(List<String> major, String name, String value,
+			String prefix, int index) {
 		StringBuffer stringBuffer = new StringBuffer(
 				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (");
 		String strParent = stringBuffer.toString() + index + ", N'" + name
-				+ "Info', '" + name + "',N'" + name + "', null, null, null );";
+				+ "Info', '" + value + "',N'" + name + "', null, null, null );";
 		System.out.println(strParent);
 		int ind = index + 1;
 		for (String string : major) {
-			String sql = stringBuffer.toString() + ind + ", N'" + name + "Info', N'"
-					+ prefix + String.format("%02d", ind - index) + "', N'" + string
-					+ "', " + index + ", " + (ind - index) + ",'');";
+			String sql = stringBuffer.toString() + ind + ", N'" + name
+					+ "Info', N'" + prefix + String.format("%02d", ind - index)
+					+ "', N'" + string + "', " + index + ", " + (ind - index)
+					+ ",'');";
 			System.out.println(sql);
 			ind++;
 			// System.out.println(String.format("%04d", ind));
@@ -374,18 +377,68 @@ public class FileUtil {
 
 	// 了解:掌握:熟练:精通
 	public static void method09() {
-		List<String> major = new ArrayList<String>();
+		List<String> items = new ArrayList<String>();
 		String str = "了解:掌握:熟练:精通";
 		String[] strArray = str.split(":");
 		int len = strArray.length;
 		for (int i = 0; i < len; i++) {
 			String string = strArray[i];
-			major.add(string);
+			items.add(string);
 		}
 
 		String name = "Proficiency";
 		int index = 3610;
 		String prefix = "P";
-		genSql(major, name, prefix, index);
+		genSql(items, name, name, prefix, index);
+	}
+
+	/**
+	 * 目标合理性
+	 */
+	public static void method10() {
+		List<String> items = new ArrayList<String>();
+		items.add("质量目标合理性");
+		items.add("计划收入计划成本合理性");
+		items.add("变更修正合理性");
+
+		String name = "ReasonableObjective";
+		String value = "目标合理性";
+		int index = 3615;
+		String prefix = "RO";
+		genSql(items, name, value, prefix, index);
+	}
+
+	// 了解:掌握:熟练:精通
+	/**
+	 * 操作规范性
+	 */
+	public static void method11() {
+		List<String> items = new ArrayList<String>();
+		items.add("立项结项及时性");
+		items.add("主项目子项目挂接正确性");
+		items.add("人力挂接项目（含IDLE）正确性");
+		items.add("项目评价合理性");
+
+		String name = "OperationStandard";
+		String value = "操作规范性";
+		int index = 3619;
+		String prefix = "OS";
+		genSql(items, name, value, prefix, index);
+	}
+
+	// 了解:掌握:熟练:精通
+	/**
+	 * 数据准确性
+	 */
+	public static void method12() {
+		List<String> items = new ArrayList<String>();
+		items.add("质量评价数据填报准确性");
+		items.add("人力地图数据准确性");
+
+		String name = "AccurateData";
+		String value = "数据准确性";
+		int index = 3624;
+		String prefix = "AD";
+		genSql(items, name, value, prefix, index);
 	}
 }
