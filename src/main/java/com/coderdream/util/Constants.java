@@ -2,6 +2,9 @@ package com.coderdream.util;
 
 public class Constants {
 	
+
+	public static final String ENCODING = "utf-8";
+	
 	public static String SIMPLE_DATE_FORMAT = "yyyy-MM-dd";
 	
 	public static String TABLE_STRUCTURE_FILE_NAME = "TableStructure.xlsx";

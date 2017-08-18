@@ -359,7 +359,7 @@ public class FileUtil {
 	private static void genSql(List<String> major, String name, String value,
 			String prefix, int index) {
 		StringBuffer stringBuffer = new StringBuffer(
-				"INSERT INTO [PDRC_Dictionary] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (");
+				"INSERT INTO [DataDict] ([ID],[Type],[KeyName],[value],[ParentID],[Remark],[SortIndex])VALUES (");
 		String strParent = stringBuffer.toString() + index + ", N'" + name
 				+ "Info', '" + value + "',N'" + name + "', null, null, null );";
 		System.out.println(strParent);
@@ -403,7 +403,7 @@ public class FileUtil {
 
 		String name = "ReasonableObjective";
 		String value = "目标合理性";
-		int index = 3615;
+		int index = 1;
 		String prefix = "RO";
 		genSql(items, name, value, prefix, index);
 	}
@@ -421,7 +421,7 @@ public class FileUtil {
 
 		String name = "OperationStandard";
 		String value = "操作规范性";
-		int index = 3619;
+		int index = 5;
 		String prefix = "OS";
 		genSql(items, name, value, prefix, index);
 	}
@@ -437,7 +437,7 @@ public class FileUtil {
 
 		String name = "AccurateData";
 		String value = "数据准确性";
-		int index = 3624;
+		int index = 11;
 		String prefix = "AD";
 		genSql(items, name, value, prefix, index);
 	}

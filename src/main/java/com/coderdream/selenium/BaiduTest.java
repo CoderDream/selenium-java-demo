@@ -23,7 +23,7 @@ public class BaiduTest {
 		// System.setProperty("webdriver.firefox.bin",
 		// "D:/Firefox/firefox.exe");
 		// 打开指定路径的firefox,方法2
-		File pathToFirefoxBinary = new File("D:\\Firefox\\firefox.exe");
+		File pathToFirefoxBinary = new File("C:\\Firefox\\firefox.exe");
 		FirefoxBinary firefoxbin = new FirefoxBinary(pathToFirefoxBinary);
 		driver = new FirefoxDriver(firefoxbin, null);
 		baseUrl = "https://www.baidu.com/";

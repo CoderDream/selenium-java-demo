@@ -9,7 +9,7 @@ public class ViewProjectEvaluationServiceTest {
 
 	@Before
 	public void setUp() throws Exception {
-		baseUrl = "http://localhost:1666/";
+		baseUrl = "http://test3.bill-jc.com/";
 	}
 
 	@Test

@@ -9,7 +9,7 @@ public class DriverTest {
 
 	@Test
 	public void testFireFox() {
-		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
+		System.setProperty("webdriver.firefox.bin", "C:/Firefox/firefox.exe");
 		WebDriver driver = new FirefoxDriver();
 		String baseUrl = "https://www.baidu.com/";
 		driver.get(baseUrl);

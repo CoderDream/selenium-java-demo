@@ -1,8 +1,11 @@
 package com.coderdream.selenium;
 
+import static org.junit.Assert.fail;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,11 +17,15 @@ public class TableTest {
 	private WebDriver driver;
 	private String baseUrl;
 
+
+	private StringBuffer verificationErrors = new StringBuffer();
+	
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.firefox.bin", "D:/Firefox/firefox.exe");
+		System.setProperty("webdriver.firefox.bin", "C:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
-		baseUrl = System.getProperty("user.dir") + "\\src\\main\\java\\com\\coderdream\\selenium\\table.html";
+		baseUrl = System.getProperty("user.dir")
+						+ "\\src\\main\\java\\com\\coderdream\\selenium\\table.html";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
@@ -56,6 +63,15 @@ public class TableTest {
 					System.out.println("error");
 				}
 			}
+		}
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		driver.quit();
+		String verificationErrorString = verificationErrors.toString();
+		if (!"".equals(verificationErrorString)) {
+			fail(verificationErrorString);
 		}
 	}
 }
