@@ -1,14 +1,12 @@
 package com.coderdream.pdrc;
 
 import java.io.File;
-import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class ViewMyAuditService {
@@ -174,7 +172,7 @@ public class ViewMyAuditService {
 		}
 
 		snapshot("pa_test_case_0402_my_audit.png", driver);
-		
+
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -183,7 +181,6 @@ public class ViewMyAuditService {
 		// 点击确定按钮
 		// 绝对匹配
 		driver.findElement(By.xpath("//span[text()='确定']")).click();
-		
 
 		snapshot("pa_test_case_0402_my_audit.png", driver);
 		try {
