@@ -29,6 +29,10 @@ public class ConfigLoader {
 	private static String password;
 	// 发件人显示昵称
 	private static String nickname;
+
+	// 收件人显示昵称
+	private static String mailto;
+	
 	static {
 		// 类初始化后加载配置文件
 		InputStream in = ConfigLoader.class.getClassLoader()
@@ -46,6 +50,7 @@ public class ConfigLoader {
 		username = props.getProperty("mail.username");
 		password = props.getProperty("mail.password");
 		nickname = props.getProperty("mail.nickname");
+		mailto = props.getProperty("mail.mailto");
 		log.debug("load mail setting success,file path:" + mailPath);
 	}
 
@@ -71,6 +76,46 @@ public class ConfigLoader {
 
 	public static void setMailPath(String mailPath) {
 		ConfigLoader.mailPath = mailPath;
+	}
+
+	public static Logger getLog() {
+		return log;
+	}
+
+	public static void setLog(Logger log) {
+		ConfigLoader.log = log;
+	}
+
+	public static String getMailto() {
+		return mailto;
+	}
+
+	public static void setMailto(String mailto) {
+		ConfigLoader.mailto = mailto;
+	}
+
+	public static String getMailPath() {
+		return mailPath;
+	}
+
+	public static void setServer(String server) {
+		ConfigLoader.server = server;
+	}
+
+	public static void setSender(String sender) {
+		ConfigLoader.sender = sender;
+	}
+
+	public static void setUsername(String username) {
+		ConfigLoader.username = username;
+	}
+
+	public static void setPassword(String password) {
+		ConfigLoader.password = password;
+	}
+
+	public static void setNickname(String nickname) {
+		ConfigLoader.nickname = nickname;
 	}
 
 }
