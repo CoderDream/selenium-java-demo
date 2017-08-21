@@ -3,10 +3,10 @@ package com.coderdream.sadp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ViewMyProfileService extends BaseSadpService {
+public class SearchTaskService extends BaseSadpService {
 
-	public void myProfile(WebDriver driver) {
-		String linkText = "人力看板--我的人力档案";
+	public void searchByParams(WebDriver driver, String linkText, String skillName) {
+		// String linkText = "人力看板--人力查询-按技能查询";
 		// 根据传入的值选择下拉选单，点击该项目
 		driver.findElement(By.linkText(linkText)).click();
 		try {
@@ -15,6 +15,42 @@ public class ViewMyProfileService extends BaseSadpService {
 			e.printStackTrace();
 		}
 		String method = Thread.currentThread().getStackTrace()[1].getMethodName();
+		snapshot(method, driver);
+
+		// 绝对匹配
+		driver.findElement(By.xpath("//label[text()='" + skillName + "']")).click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		snapshot(method, driver);
+
+		// 
+		driver.findElement(By.id("query-condition-btn")).click();
+		snapshot(method, driver);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		snapshot(method, driver);
+	}
+	
+	// 
+	
+	public void selectProfileByName(WebDriver driver, String profileName) {
+		String method = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		// 绝对匹配
+		driver.findElement(By.xpath("//span[text()='" + profileName + "']")).click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		snapshot(method, driver);
 	}
 
@@ -95,8 +131,7 @@ public class ViewMyProfileService extends BaseSadpService {
 		}
 
 		snapshot(method, driver);
-		
-		
+
 		driver.findElement(By.id("skill-btn")).click();
 		snapshot(method, driver);
 
@@ -112,7 +147,7 @@ public class ViewMyProfileService extends BaseSadpService {
 		driver.findElement(By.xpath("//span[text()='确定']")).click();
 		snapshot(method, driver);
 	}
-	
+
 	public void editDomain(WebDriver driver, String domainName) {
 		String method = Thread.currentThread().getStackTrace()[1].getMethodName();
 		// 点击下拉选单
@@ -126,8 +161,7 @@ public class ViewMyProfileService extends BaseSadpService {
 		}
 
 		snapshot(method, driver);
-		
-		
+
 		driver.findElement(By.id("domain-btn")).click();
 		snapshot(method, driver);
 

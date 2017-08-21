@@ -3,10 +3,10 @@ package com.coderdream.sadp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ViewMyProfileService extends BaseSadpService {
+public class MyTaskService extends BaseSadpService {
 
-	public void myProfile(WebDriver driver) {
-		String linkText = "人力看板--我的人力档案";
+	public void myTask(WebDriver driver) {
+		String linkText = "任务看板--我发布的任务";
 		// 根据传入的值选择下拉选单，点击该项目
 		driver.findElement(By.linkText(linkText)).click();
 		try {
@@ -18,7 +18,7 @@ public class ViewMyProfileService extends BaseSadpService {
 		snapshot(method, driver);
 	}
 
-	public void myProfileBaseInfo(WebDriver driver) {
+	public void myTaskBaseInfo(WebDriver driver) {
 		String linkText = "基本信息";
 		// 根据传入的值选择下拉选单，点击该项目
 		driver.findElement(By.linkText(linkText)).click();
@@ -31,8 +31,8 @@ public class ViewMyProfileService extends BaseSadpService {
 		snapshot(method, driver);
 	}
 
-	public void updateMyProfileBaseInfo(WebDriver driver) {
-		// // profile-update-btn
+	public void updateMyTaskBaseInfo(WebDriver driver) {
+		// // task-update-btn
 		// String linkText = "基本信息";
 		// // 根据传入的值选择下拉选单，点击该项目
 		// driver.findElement(By.linkText(linkText)).click();
@@ -45,7 +45,7 @@ public class ViewMyProfileService extends BaseSadpService {
 		snapshot(method, driver);
 
 		// 点击下拉选单
-		driver.findElement(By.id("profile-update-btn")).click();
+		driver.findElement(By.id("task-update-btn")).click();
 		snapshot(method, driver);
 
 		try {
@@ -66,7 +66,7 @@ public class ViewMyProfileService extends BaseSadpService {
 	 * 
 	 * @param driver
 	 */
-	public void returnMyProfile(WebDriver driver) {
+	public void returnMyTask(WebDriver driver) {
 		String method = Thread.currentThread().getStackTrace()[1].getMethodName();
 		// 点击下拉选单
 		driver.findElement(By.id("rtn-btn")).click();
