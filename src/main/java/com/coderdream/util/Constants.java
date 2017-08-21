@@ -7,6 +7,12 @@ public class Constants {
 	
 	public static String SIMPLE_DATE_FORMAT = "yyyy-MM-dd";
 	
+	/** yyyy-MM-dd HH:mm:ss:SSS */
+	public static final String COMPLEX_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss:SSS";
+
+	/** yyyyMMddHHmmssSSS */
+	public static final String COMPLEX_DATE_FORMAT2 = "yyyyMMddHHmmssSSS";
+	
 	public static String TABLE_STRUCTURE_FILE_NAME = "TableStructure.xlsx";
 	
 //	public static String DATA_FILE_NAME = "AutoTest.xlsx";

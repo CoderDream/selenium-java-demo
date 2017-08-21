@@ -54,7 +54,6 @@
 			<version>4.12</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
