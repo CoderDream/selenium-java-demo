@@ -43,13 +43,13 @@ public class ViewMyProfileServiceTest extends BaseTest {
 		viewMyProfileService.myProfile(driver);
 		
 
-		viewMyProfileService.myProfileBaseInfo(driver);
+		//viewMyProfileService.myProfileBaseInfo(driver);
 		
 		
-		viewMyProfileService.updateMyProfileBaseInfo(driver);
+		//viewMyProfileService.updateMyProfileBaseInfo(driver);
 		
 
-		viewMyProfileService.returnMyProfile(driver);
+		//viewMyProfileService.returnMyProfile(driver);
 		
 		String domainName = "ERP";
 		viewMyProfileService.editDomain(driver, domainName);
