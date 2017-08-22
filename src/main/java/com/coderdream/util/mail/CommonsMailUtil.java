@@ -17,10 +17,10 @@ public class CommonsMailUtil {
 	private String from = ConfigLoader.getSender();
 	private String username = ConfigLoader.getUsername();
 	private String password = ConfigLoader.getPassword();
-	private String nickname = ConfigLoader.getNickname();
+	// private String nickname = ConfigLoader.getNickname();
 
 	private String mailto = ConfigLoader.getMailto();
-	
+
 	public void sendSimpleTextEmail() {
 		Email email = new SimpleEmail();
 		email.setHostName(host);

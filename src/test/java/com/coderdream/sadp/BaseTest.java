@@ -16,7 +16,7 @@ public class BaseTest {
 
 	@Before
 	public void setUp() throws Exception {
-		baseUrl = "http://localhost:8080/resource/idel";
+		baseUrl = "http://localhost:8099/pdrc/resource/idel";
 
 		System.setProperty("webdriver.firefox.bin", "C:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
