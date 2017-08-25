@@ -3,6 +3,8 @@ package com.coderdream.sadp;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -31,43 +33,43 @@ public class BaseSadpService {
 
 		// 点击下拉选单
 		driver.findElement(By.id("roleName")).click();
-		snapshot(method, driver);
+		// snapshot(method, driver);
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		snapshot(method, driver);
+		// try {
+		// Thread.sleep(2000);
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
+		//
+		// snapshot(method, driver);
 
 		// 根据传入的值选择下拉选单，点击该项目
 		driver.findElement(By.xpath("//option[text()='" + roleName + "']"))
 						.click();
 
-		snapshot(method, driver);
+		// snapshot(method, driver);
 		// 设置值
 		Select selectRoleName = new Select(
 						driver.findElement(By.id("roleName")));
-		snapshot(method, driver);
+		// snapshot(method, driver);
 		selectRoleName.selectByVisibleText(roleName);
 
-		snapshot(method, driver);
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		snapshot(method, driver);
+		// snapshot(method, driver);
+		// try {
+		// Thread.sleep(2000);
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
+		//
+		// snapshot(method, driver);
 
 		// 点击下拉选单
 		driver.findElement(By.id("staff")).click();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		// try {
+		// Thread.sleep(2000);
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
 
 		// 根据传入的值选择下拉选单，点击该项目
 		driver.findElement(By.xpath("//option[text()='" + staffName + "']"))
@@ -76,24 +78,24 @@ public class BaseSadpService {
 		Select selectUser = new Select(driver.findElement(By.id("staff")));
 		selectUser.selectByVisibleText(staffName);
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		snapshot(method, driver);
+		// try {
+		// Thread.sleep(2000);
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
+		// snapshot(method, driver);
 
 		driver.findElement(By.id("submit")).click();
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		snapshot(method, driver);
+		// try {
+		// Thread.sleep(2000);
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
+		// snapshot(method, driver);
 	}
 
-	public void enterToAddAuditPage(WebDriver driver) {
+	public Map<String, String> enterToAddAuditPage(WebDriver driver) {
 		driver.findElement(By.id("new_audit")).click();
 
 		try {
@@ -103,7 +105,10 @@ public class BaseSadpService {
 		}
 		String method = Thread.currentThread().getStackTrace()[1]
 						.getMethodName();
-		snapshot(method, driver);
+		String fileName = snapshot(method, driver);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("登陆【新建审计】页面", fileName);
+		return map;
 	}
 
 	public void enterToAuditPage(WebDriver driver, String projectName) {
@@ -201,7 +206,7 @@ public class BaseSadpService {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		snapshot(method, driver);
 
 		// 根据传入的值选择下拉选单，点击该项目
@@ -375,14 +380,15 @@ public class BaseSadpService {
 
 		snapshot(method, driver);
 	}
-	
-	
 
-	public void snapshot(String picname, WebDriver driver) {
+	public String snapshot(String picname, WebDriver driver) {
 		SimpleDateFormat sf = new SimpleDateFormat(
 						Constants.COMPLEX_DATE_FORMAT2);
 		picname = sf.format(new Date()) + "_" + picname + ".png";
 		logger.debug("picname\t {}", picname);
+
+		String fileName = System.getProperty("user.dir") + "\\snapshot\\"
+						+ picname;
 
 		// 这里等待页面加载完成
 		try {
@@ -391,14 +397,14 @@ public class BaseSadpService {
 			// 下面代码是得到截图并保存在D盘下
 			File screenShotFile = ((TakesScreenshot) driver)
 							.getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(screenShotFile,
-							new File(System.getProperty("user.dir")
-											+ "\\snapshot\\" + picname));
+			FileUtils.copyFile(screenShotFile, new File(fileName));
 
 			// Thread.sleep(1000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return fileName;
 	}
 
 }

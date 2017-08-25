@@ -54,31 +54,6 @@ public class MssqlUtil {
 	}
 
 	/**
-	 * [ID, ParentID, ProjectNo, ProjectName, ProjectMgr_WorkID,
-	 * ProjectMgr_Name, Company, DepartmentID, DepartmentName, OEProList,
-	 * ProjectType, ProjectSubType, ProjectStartDate, ProjectEndDate,
-	 * CustomerNo, CustomerName, CustomerDep, ProductFamilyName, ProductName,
-	 * Technology, DeliveryType, CustomerPM, BU_Manager, PersonTotal,
-	 * CooperationType, OBDORPPC, WIP, stock, ProState, isJump, ProComputerTime,
-	 * CreateWorkID, BU_Manager_WorkID, BU_Manager_Name, Pro_ThreeDepartmentID,
-	 * Pro_ThreeDepartmentName, Pro_FourDepartmentID, Pro_FourDepartmentName,
-	 * ClientProductPM, ClientProjectPM, BJCProductPMWork_ID, BJCProductPMName,
-	 * QAWork_ID, QAName, ProjectType2, ProjectTechnosphere,
-	 * ProjectStartDateTime, ProjectEndDateTime, DeliveryAddress, ISQASupport,
-	 * WorkEvaluate, DemandRange, ProStatePPC, isJumpPPC, BudgetCustomerNO,
-	 * BudgetCustomerName, OEProjectNO, OEProjectName, EntryDate, BeProduct,
-	 * BeProductName, IsOtherplace, TeamSize, CalendarID, CalendarName,
-	 * CreateName, CreateDate, DeliveryCity, DeliveryCityID, AreaType, IsSite,
-	 * IsFinish, EndName, ProjectAK, IsOrder, OrderDate, OrderMoney,
-	 * ApplicationDate, ProjectDescr, ProjectTypes, ContractNo, ContractName,
-	 * ReadyType, FirstCustomNo, FirstCustomName, SecondCustomNo,
-	 * SecondCustomName, ThirdCustomNo, ThirdCustomName, LevelName, IsOld,
-	 * IsContinue, ProjectNewNo, BaseType, OverTimePayTimes, PDRC, PlanIncome,
-	 * PlanCost, SubcontractorIncome, SubcontractorCost, IsTestProject,
-	 * PD_DepartID, PD_DepartName, MajorIncome, MajorCost, PassThroughIncome,
-	 * PassThroughCost, TravelIncome, TravelCost, AdvanceIncome, AdvanceCost,
-	 * SubsidyIncome, SubsidyCost, AttachIncome, AttachCost,
-	 * InnerSubContractTotalCost, InnerSubContractCount]
 	 * 
 	 * @param sql
 	 * @param columns
@@ -90,7 +65,7 @@ public class MssqlUtil {
 	}
 
 	public static List<String[]> executeQuery(String databaseName, String sql,
-			String columns) {
+					String columns) {
 		Connection conn = getConnection(databaseName);
 		return executeQuery(sql, columns, conn);
 	}
@@ -119,7 +94,7 @@ public class MssqlUtil {
 	// }
 
 	private static List<String[]> executeQuery(String sql, String columns,
-			Connection conn) {
+					Connection conn) {
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
@@ -157,6 +132,18 @@ public class MssqlUtil {
 		}
 	}
 
+	public static int executeUpdate(Connection conn, String sql) {
+		try {
+			Statement st = conn.createStatement();
+			int result = st.executeUpdate(sql);
+			st.close();
+			conn.close();
+			return result;
+		} catch (SQLException e) {
+			throw new IllegalArgumentException(e);
+		}
+	}
+
 	public static Connection getConnection() {
 		try {
 			// Class.forName("net.sourceforge.jtds.jdbc.Driver");
@@ -168,7 +155,7 @@ public class MssqlUtil {
 			String username = "sa";
 			String password = "sa3223624";
 			Connection conn = DriverManager.getConnection(url, username,
-					password);
+							password);
 			return conn;
 		} catch (Exception e) {
 			throw new IllegalArgumentException(e);
@@ -182,13 +169,34 @@ public class MssqlUtil {
 			// String url =
 			// "jdbc:jtds:sqlserver://10.100.254.96:1433;DatabaseName=BJC_Finance_Test";
 			String url = "jdbc:sqlserver://10.100.254.96:1433;DatabaseName="
-					+ databaseName + "";
+							+ databaseName + "";
 			// String connectionUrl =
 			// "jdbc:sqlserver://127.0.0.1:1433;databaseName=NewDB;user=sa;password=lty@123;";
 			String username = "sa";
 			String password = "sa3223624";
 			Connection conn = DriverManager.getConnection(url, username,
-					password);
+							password);
+			return conn;
+		} catch (Exception e) {
+			throw new IllegalArgumentException(e);
+		}
+	}
+
+	public static Connection getConnectionByConnectionUrl(
+					String connectionUrl) {
+		try {
+			// Class.forName("net.sourceforge.jtds.jdbc.Driver");
+			// Driver d = null;
+			// String url =
+			// "jdbc:jtds:sqlserver://10.100.254.96:1433;DatabaseName=BJC_Finance_Test";
+			// String url = "jdbc:sqlserver://10.100.254.96:1433;DatabaseName="
+			// + databaseName + "";
+			// String connectionUrl =
+			// "jdbc:sqlserver://127.0.0.1:1433;databaseName=NewDB;user=sa;password=lty@123;";
+			String username = "sa";
+			String password = "sa3223624";
+			Connection conn = DriverManager.getConnection(connectionUrl,
+							username, password);
 			return conn;
 		} catch (Exception e) {
 			throw new IllegalArgumentException(e);
