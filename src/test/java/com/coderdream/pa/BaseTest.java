@@ -16,9 +16,9 @@ public class BaseTest {
 
 	@Before
 	public void setUp() throws Exception {
-		//baseUrl = "http://localhost:8099/audit/resource/mybrothers";
+		baseUrl = "http://localhost:8099/audit/resource/mybrothers";
 		
-		baseUrl = "http://10.100.254.87:8099/audit/resource/mybrothers";
+		//baseUrl = "http://10.100.254.87:8099/audit/resource/mybrothers";
 
 		System.setProperty("webdriver.firefox.bin", "C:/Firefox/firefox.exe");
 		driver = new FirefoxDriver();
