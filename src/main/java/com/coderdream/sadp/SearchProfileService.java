@@ -27,7 +27,7 @@ public class SearchProfileService extends BaseSadpService {
 		snapshot(method, driver);
 
 		// query-condition-btn
-		driver.findElement(By.id("profile-query-condition-btn")).click();
+		driver.findElement(By.id("profile-query-btn")).click();
 		snapshot(method, driver);
 
 		try {

@@ -24,7 +24,7 @@ public class SearchByAuditItemService extends BaseAuditService {
 		
 		
 		// 提交
-		driver.findElement(By.id("project-audit-query-condition-btn")).click();
+		driver.findElement(By.id("project-audit-query-btn")).click();
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
