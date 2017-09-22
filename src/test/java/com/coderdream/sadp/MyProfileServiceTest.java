@@ -22,7 +22,7 @@ public class MyProfileServiceTest extends BaseTest {
 	public void testMyProfile() {
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		String roleName = "普通员工";
-		String staffName = "[B-13416]王东霞";
+		String staffName = "[B-21945]颜冰";
 
 		// 登陆
 		viewMyProfileService.login(driver, roleName, staffName);
