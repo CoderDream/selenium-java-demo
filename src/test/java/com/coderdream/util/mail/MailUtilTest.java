@@ -41,6 +41,7 @@ public class MailUtilTest {
 		} catch (TemplateException e) {
 			log.error(e.toString(), e);
 		} catch (MessagingException e) {
+			System.out.printf("e" + e.getMessage());
 			log.error(e.toString(), e);
 		}
 	}

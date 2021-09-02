@@ -60,24 +60,24 @@ com.coderdream.selenium.Baidu.java
 先通过findElement找到表格，然后通过findElements找到所有tr，再通过findElements找到所有td
 
     WebElement table = driver.findElement(By.tagName("table"));
-	// findElement是定位单个元素的方法
-	//table.findElement(By.tagName("tr"));
-	
-	// findElements是定位一组元素的方法
-	String str1 = "第二行第2列";
-	String str2 = "第三行第6列";
-	List<WebElement> trs = table.findElements(By.tagName("tr"));
-	for (WebElement tr : trs) {
-		List<WebElement> tds = tr.findElements(By.tagName("td"));
-		for (WebElement td : tds) {
-			//System.out.println(td.getText());
-			if(str1.equals(td.getText()) ||str2.equals(td.getText())) {
-				System.out.println(td.getText());
-			} else {
-				System.out.println("error");
-			}
-		}
-	}
+    // findElement是定位单个元素的方法
+    //table.findElement(By.tagName("tr"));
+    
+    // findElements是定位一组元素的方法
+    String str1 = "第二行第2列";
+    String str2 = "第三行第6列";
+    List<WebElement> trs = table.findElements(By.tagName("tr"));
+    for (WebElement tr : trs) {
+    	List<WebElement> tds = tr.findElements(By.tagName("td"));
+    	for (WebElement td : tds) {
+    		//System.out.println(td.getText());
+    		if(str1.equals(td.getText()) ||str2.equals(td.getText())) {
+    			System.out.println(td.getText());
+    		} else {
+    			System.out.println("error");
+    		}
+    	}
+    }
 
 
 
@@ -104,3 +104,21 @@ Selenium-webdriver学习教程
 | Sample13      | 如何利用Actions类模拟鼠标和键盘的操作|[http://jarvi.iteye.com/blog/1468690](http://jarvi.iteye.com/blog/1468690)|
 | Sample14      | 如何处理table|[http://jarvi.iteye.com/blog/1477837](http://jarvi.iteye.com/blog/1477837)|
 | Sample15      | 如何处理FirefoxProfile（有问题）|[http://jarvi.iteye.com/blog/1482064](http://jarvi.iteye.com/blog/1482064)|
+
+
+
+
+
+## Send Mail 错误
+
+```
+javax.mail.AuthenticationFailedException: 535 Error: authentication failed
+```
+
+
+
+
+
+
+
+# END

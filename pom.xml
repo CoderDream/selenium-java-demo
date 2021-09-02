@@ -15,8 +15,8 @@
 		<argLine>-Dfile.encoding=UTF-8</argLine>
 		<poi.version>3.16</poi.version>
 		<!-- Logging -->
-		<logback.version>1.0.13</logback.version>
-		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>[1.2.0,)</logback.version>
+		<slf4j.version>1.7.32</slf4j.version>
 	</properties>
 
 	<dependencies>
@@ -51,7 +51,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>[4.13.1,)</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
@@ -106,11 +106,13 @@
 			<version>1.4.7</version>
 		</dependency>
 		<!-- -->
+		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>sqljdbc4</artifactId>
-			<version>4.2</version>
+			<version>4.0</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
 		<dependency>
@@ -130,14 +132,6 @@
 						<source>1.8</source>
 						<target>1.8</target>
 						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.eluder.coveralls</groupId>
-					<artifactId>coveralls-maven-plugin</artifactId>
-					<version>4.3.0</version>
-					<configuration>
-						<repoToken>yourcoverallsprojectrepositorytoken</repoToken>
 					</configuration>
 				</plugin>
 				<plugin>
