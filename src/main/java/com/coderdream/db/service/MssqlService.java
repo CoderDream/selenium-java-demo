@@ -121,7 +121,7 @@ public class MssqlService {
 			String leftOthers = mapA.get(columnName);
 			tableCompareBean.setLeftOthers(leftOthers);
 			String rigthOthers = mapB.get(columnName);
-			tableCompareBean.setRigthOthers(rigthOthers);
+			tableCompareBean.setRightOthers(rigthOthers);
 
 			if (a & b & others.equals(leftOthers)
 					& others.equals(rigthOthers)) {

@@ -12,7 +12,7 @@ public class TableCompareBean {
 
 	private String rightColumnName;
 
-	private String rigthOthers;
+	private String rightOthers;
 
 	public String getTableName() {
 		return tableName;
@@ -46,12 +46,12 @@ public class TableCompareBean {
 		this.leftOthers = leftOthers;
 	}
 
-	public String getRigthOthers() {
-		return rigthOthers;
+	public String getRightOthers() {
+		return rightOthers;
 	}
 
-	public void setRigthOthers(String rigthOthers) {
-		this.rigthOthers = rigthOthers;
+	public void setRightOthers(String rightOthers) {
+		this.rightOthers = rightOthers;
 	}
 
 	public Boolean getCompareResult() {
@@ -67,7 +67,7 @@ public class TableCompareBean {
 		return "leftColumnName\t" + leftColumnName + ", leftOthers\t"
 				+ leftOthers + ", compareResult\t" + compareResult
 				+ ", rightColumnName\t" + rightColumnName + ", rigthOthers\t"
-				+ rigthOthers + "]";
+				+ rightOthers + "]";
 	}
 
 }
